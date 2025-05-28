@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "@cypress/webpack-dev-server": "^4.1.0",
+    "@types/node": "^22.15.23",
+    "cypress": "^14.4.0",
+    "typescript": "^5.8.3"
+  }
+}
