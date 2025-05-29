@@ -8,7 +8,7 @@ These projects demonstrate two key competencies:
 
 ## 🧪 1. Frontend UI Automation (SauceDemo)
 
-📁 [`cypress/e2e/ui-tests/`](./cypress/e2e/ui-tests)
+📁 [`cypress/e2e/ui-tests/`](./cypress/e2e/simple-ui-tests)
 
 This test suite validates the complete user journey of [SauceDemo](https://www.saucedemo.com), a public-facing sample app for testing ecommerce flows.
 
