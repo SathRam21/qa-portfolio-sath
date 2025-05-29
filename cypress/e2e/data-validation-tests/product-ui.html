@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Product Dashboard</title>
+  <style>
+    table, th, td { border: 1px solid black; border-collapse: collapse; padding: 8px; }
+  </style>
+</head>
+<body>
+  <h1>🌐 Product Dashboard (Countries as Products)</h1>
+  <table id="product-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Continent</th>
+        <th>Price</th>
+        <th>Languages</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const query = `
+      query {
+        countries {
+          code
+          name
+          continent { name }
+          languages { name }
+        }
+      }
+    `;
+
+    fetch('https://countries.trevorblades.com/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        const countries = data.data.countries
+          .filter(c => c.languages.length > 0)
+          .sort(() => 0.5 - Math.random())
+          .slice(0, 5); // pick 5 countries
+
+        const tbody = document.querySelector('#product-table tbody');
+
+        countries.forEach(c => {
+          const tr = document.createElement('tr');
+          const price = (c.code.charCodeAt(0) * 2).toFixed(2); // fake price logic
+
+          tr.setAttribute('data-code', c.code);
+          tr.innerHTML = `
+            <td class="country-name">${c.name}</td>
+            <td class="continent-name">${c.continent.name}</td>
+            <td class="price">$${price}</td>
+            <td class="languages">${c.languages.map(l => l.name).join(', ')}</td>
+          `;
+
+          tbody.appendChild(tr);
+        });
+      });
+  </script>
+</body>
+</html>

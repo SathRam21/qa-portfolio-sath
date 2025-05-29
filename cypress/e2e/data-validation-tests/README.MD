@@ -1,35 +1,72 @@
-# 🔍 Cypress Data Validation: UI ↔ Backend with Dynamic Country Data
+# 🔍 Cypress Data Validation: UI ↔ Backend (GraphQL)
 
-This project simulates a **real-world QA workflow** where a frontend displays dynamic data, and the test suite validates it against backend data via API queries.
+This folder contains Cypress test projects that simulate real-world QA workflows where **data shown in the frontend is validated against a backend API**, similar to ETL or DB-vs-UI consistency checks.
 
----
-
-## ✅ What This Test Demonstrates
-
-### 🧪 Real QA Capabilities
-
-| Capability | Description |
-|------------|-------------|
-| ✅ End-to-End Data Validation | Pulls data from a UI and validates every field against a live backend (GraphQL API) |
-| ✅ Dynamic Test Logic | No hardcoded values — countries are selected randomly and validated at runtime |
-| ✅ Data Injection | UI is generated using frontend JS that calls a public API and renders results |
-| ✅ Deep Assertions | Tests validate not just names, but capital, currency, continent, and languages |
-| ✅ Detailed Logging | `cy.log()` gives clear, step-by-step feedback in the test runner |
-| ✅ API + UI Sync | Simulates workflows like ETL testing, multi-source syncing, or DB-vs-frontend consistency |
+These tests showcase dynamic, reusable, and data-driven testing strategies using **public APIs**, **JavaScript-generated UIs**, and **GraphQL queries**.
 
 ---
 
-## 📁 Files
+## ✅ Projects
 
-| File | Purpose |
-|------|---------|
-| `test-ui.html` | Simulates a frontend that loads random countries dynamically |
-| `random-country-validate.cy.ts` | Cypress test that validates UI-rendered data against backend GraphQL responses |
+### 1. 🌍 `random-country-validate.cy.ts`
+> A dynamic test that reads country data from the frontend and validates it against live GraphQL API responses.
+
+**What it does:**
+- Loads a static HTML UI that displays **3 randomly selected countries**
+- Cypress queries the backend GraphQL API for each country
+- Validates:
+  - Country name
+  - Capital
+  - Currency
+  - Continent
+  - Languages
+
+📄 **Page**: `test-ui.html`  
+🔍 **API**: https://countries.trevorblades.com/
 
 ---
 
-## 🚀 How to Run It
+### 2. 🛒 `product-validate.cy.ts`
+> Simulates a **Product Dashboard** (countries as products) with multiple fields per row.
 
-1. Serve the test UI locally:
-   ```bash
-   npm run serve:test-ui
+**What it does:**
+- UI dynamically renders a table of 5 random countries as products
+- Fields shown: name, continent, languages, and a **mock price**
+- Cypress validates:
+  - Name → matches backend
+  - Continent → matches backend
+  - Languages → match sorted list
+  - Price → is calculated from code and matched (simulates backend-calculated fields)
+
+📄 **Page**: `product-ui.html`  
+🧠 **Price logic**: `$ = charCode(countryCode[0]) * 2`  
+🔍 **API**: https://countries.trevorblades.com/
+
+---
+
+## 💡 Skills Demonstrated
+
+| Skill Category         | Description |
+|------------------------|-------------|
+| ✅ End-to-End Data Validation | Verifies frontend values against backend APIs |
+| 🔄 Dynamic Test Logic | Loops through visible data, builds GraphQL queries |
+| 🧩 Nested Object Validation | Validates languages (array), continent (object) |
+| 💬 Logging & Debugging | Cypress logs detail every validation step |
+| ♻️ Reusable Patterns | Tests work with any random countries, not hardcoded |
+| 🔧 Simulated Business Logic | Custom price calculation logic mimics real apps |
+
+---
+
+## 🚀 How to Run These Projects
+
+### 1. Start the local HTML server
+```bash
+npm run serve:test-ui
+From the project root:
+
+```bash
+npm install
+npx cypress open
+
+
+
