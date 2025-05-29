@@ -4,6 +4,8 @@ This folder contains Cypress test projects that simulate real-world QA workflows
 
 These tests showcase dynamic, reusable, and data-driven testing strategies using **public APIs**, **JavaScript-generated UIs**, and **GraphQL queries**.
 
+At Verto, I integrated SQL queries directly into Cypress tests to validate frontend data against backend records in real-time. This allowed me to dynamically fetch patient data, verify database mutations like deletions or insertions, and ensure the UI reflected accurate conditions or encounter states. I also used SQL to prepare test data and clean up records, enabling repeatable and reliable automation flows.
+
 ---
 
 ## ✅ Projects
