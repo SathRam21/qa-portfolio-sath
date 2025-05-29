@@ -1,69 +1,50 @@
-🧪 QA Automation Portfolio – Sath Ramanan
-Welcome! This repository showcases my QA automation experience using Cypress, TypeScript, and other modern tools. It includes real-world examples of UI testing, API testing, email validation, load testing, and accessibility auditing — all built using public demo apps and open APIs.
+# 🎯 QA Automation Portfolio – Sath Ramanan
 
-📦 Technologies Used
-Cypress for end-to-end UI testing
+Welcome! This portfolio showcases my professional experience and skillset as a **QA Automation Engineer** using Cypress, TypeScript, and real-world test strategies.
 
-TypeScript for type-safe scripting
+These projects demonstrate two key competencies:
 
-Locust for load and performance testing
+---
 
-MailSlurp for public inbox testing
+## 🧪 1. Frontend UI Automation (SauceDemo)
 
-Axe-core for accessibility audits
+📁 [`cypress/e2e/ui-tests/`](./cypress/e2e/ui-tests)
 
-GitHub Actions for CI
+This test suite validates the complete user journey of [SauceDemo](https://www.saucedemo.com), a public-facing sample app for testing ecommerce flows.
 
-🛠 Installation & Setup
-These steps are all you need to run any Cypress-based project in this repo.
+### ✅ What It Covers:
+- **Login workflows** (valid/invalid credential handling)
+- **Add to cart** + badge count assertions
+- **Remove from cart** and item-level verification
+- **Checkout validation** with item total, tax, and grand total
 
-1. Clone the Repository
-git clone https://github.com/your-username/qa-portfolio-sath.git
-cd qa-portfolio-sath
+### 🔧 Tools:
+- Cypress + TypeScript
+- Page Object Model-style structure
+- Logging with `cy.log()` for traceability
 
-2. Install Dependencies
-npm install
+> 💼 This suite reflects what I’ve built for production apps: UI test coverage for flows like patient registration, appointment handling, and state transitions.
 
-3. Run Cypress Tests
-Interactive mode:
+---
 
-npx cypress open
+## 🔍 2. UI ↔ Backend Data Validation (GraphQL API)
 
-Headless mode:
+📁 [`cypress/e2e/data-validation-tests/`](./cypress/e2e/data-validation-tests)
 
-npx cypress run
+At **Verto**, I developed Cypress tests that validated frontend data (e.g., appointments, conditions) against live SQL queries in Trino/PostgreSQL. This test suite mirrors that pattern using public GraphQL APIs.
 
-📁 Project Structure
-qa-portfolio-sath/
-├── cypress/
-│ ├── e2e/
-│ │ ├── ui-tests/ # Cypress UI tests (e.g. SauceDemo)
-│ │ ├── accessibility-tests/ # Cypress + Axe accessibility audits
-│ │ ├── email-tests/ # Cypress email receipt & content tests
-│ ├── fixtures/
-│ ├── support/
-├── api-tests/ # Postman/Bruno API test collections
-├── load-tests/ # Locust load testing scenarios
-├── .github/workflows/ # CI pipelines for Cypress tests
-├── cypress.config.ts # Cypress config (shared across tests)
-├── package.json
-└── README.md
+### ✅ What It Covers:
+- **Dynamic UIs generated from live API data**
+- **GraphQL queries that validate frontend fields**
+- **Nested data validation** (e.g., continent, languages, currency)
+- **Business logic testing** via mock calculated fields (like price)
 
-🔍 Featured Projects
-Type	Folder	Tools Used
-Cypress UI Tests	cypress/e2e/ui-tests/	Cypress, TypeScript
-Accessibility	cypress/e2e/accessibility-tests/	Cypress + Axe
-Email Testing	cypress/e2e/email-tests/	Cypress + MailSlurp
-Load Testing	load-tests/	Locust
-API Testing	api-tests/	Postman / Bruno
+### 📄 Projects Included:
+| Test | Description |
+|------|-------------|
+| `random-country-validate.cy.ts` | Selects 3 countries randomly and validates name, capital, continent, currency, and languages from the GraphQL API |
+| `product-validate.cy.ts` | Builds a dashboard table with 5 products (countries) and validates all fields including a fake backend-calculated price |
 
-Each folder contains its own README.md to explain the test scenarios and how to run them.
+> 🧠 These tests simulate **ETL QA**, **frontend vs DB syncing**, and **real integration validation workflows** — all without requiring a private app or database.
 
-👨‍💻 Author
-Sath Ramanan
-QA Automation Engineer
-📫 sathurthiekan2@gmail.com
-🔗 LinkedIn
-
-💡 This repo is actively evolving as I add more QA projects to demonstrate my skills. Feel free to clone or fork it for reference.
-
+---
