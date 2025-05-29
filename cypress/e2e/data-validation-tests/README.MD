@@ -62,13 +62,13 @@ These tests showcase dynamic, reusable, and data-driven testing strategies using
 ### 1. Start the local HTML server
 ```bash
 npm run serve:test-ui
-
+```
 
 ### 2. Run Cypress
 ```bash
 npm install
 npx cypress open
-
+```
 
 
 

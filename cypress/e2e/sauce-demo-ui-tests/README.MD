@@ -45,3 +45,4 @@ From the project root:
 ```bash
 npm install
 npx cypress open
+```
