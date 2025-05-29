@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dynamic Country UI</title>
+</head>
+<body>
+  <h1>Random Countries</h1>
+  <div id="country-container"></div>
+
+  <script>
+    const query = `
+      query {
+        countries {
+          code
+          name
+          capital
+        }
+      }
+    `;
+
+    fetch('https://countries.trevorblades.com/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('country-container');
+        const countries = data.data.countries;
+
+        // Select 3 random countries
+        const selected = countries.sort(() => 0.5 - Math.random()).slice(0, 3);
+
+        selected.forEach(c => {
+          const div = document.createElement('div');
+          div.className = 'country';
+          div.id = `country-${c.code}`;
+          div.innerHTML = `
+            <p class="country-name">${c.name}</p>
+            <p class="country-code">${c.code}</p>
+          `;
+          container.appendChild(div);
+        });
+      });
+  </script>
+</body>
+</html>
