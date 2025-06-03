@@ -23,3 +23,29 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import 'cypress-axe';
+
+import 'cypress-axe';
+
+Cypress.Commands.add('logA11yViolations', (violations) => {
+  cy.task('log', `🔍 Found ${violations.length} accessibility violation(s):`);
+
+  violations.forEach(({ id, impact, description, helpUrl, nodes }) => {
+    cy.task('log', `\n❌ [${impact.toUpperCase()}] ${id}`);
+    cy.task('log', `   - ${description}`);
+    cy.task('log', `   - More info: ${helpUrl}`);
+    cy.task('log', `   - Affected elements:`);
+
+    nodes.forEach((node) => {
+      cy.task('log', `     • Selector: ${node.target.join(', ')}`);
+    });
+  });
+});
+
+Cypress.Commands.add('saveA11yViolationsToSheet', (violations, pageName) => {
+  if (violations.length) {
+    cy.task('writeA11ySheet', { pageName, violations });
+  }
+});
+
+

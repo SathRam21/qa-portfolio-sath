@@ -2,12 +2,14 @@
   "devDependencies": {
     "@cypress/webpack-dev-server": "^4.1.0",
     "@types/node": "^22.15.23",
+    "axe-core": "^4.10.3",
     "cypress": "^14.4.0",
+    "cypress-axe": "^1.6.0",
     "serve": "^14.2.4",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "xlsx": "^0.18.5"
   },
   "scripts": {
-  "serve:test-ui": "serve cypress/e2e/data-validation-tests --listen 3000"
-}
-
+    "serve:test-ui": "serve cypress/e2e/data-validation-tests --listen 3000"
+  }
 }
