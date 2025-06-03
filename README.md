@@ -2,7 +2,7 @@
 
 Welcome! This portfolio showcases my professional experience and skillset as a **QA Automation Engineer** using Cypress, TypeScript, and real-world test strategies.
 
-These projects demonstrate two key competencies:
+These projects demonstrate three key competencies:
 
 ---
 
@@ -48,3 +48,31 @@ At **Verto**, I developed Cypress tests that validated frontend data (e.g., appo
 > 🧠 These tests simulate **ETL QA**, **frontend vs DB syncing**, and **real integration validation workflows** — all without requiring a private app or database.
 
 ---
+
+## ♿️ 3. Accessibility Auditing with Axe
+
+📁 [`cypress/e2e/accessibility-tests/`](./cypress/e2e/accessibility-tests)
+
+This test suite integrates `cypress-axe` to check accessibility compliance (WCAG) on public web pages — with structured logs and spreadsheet exports for full audits.
+
+### ✅ What It Covers:
+- **Critical, serious, and moderate accessibility violations**
+- **Console output of violation impact, selectors, and fix links**
+- **Excel report generation (`a11y-report.xlsx`) with one tab per page**
+- **Custom Cypress commands for logging and reporting**
+
+### 📄 Projects Included:
+| Test File | Description |
+|-----------|-------------|
+| `simple-accessibility-test.cy.ts` | Runs Axe on a single page with custom logs (impact, fix link, selectors) |
+| `accessibility-test-with-violation-report.cy.ts` | Runs Axe on Login and Inventory pages and saves results to `.xlsx` file with separate tabs |
+
+> 🛠 These tests reflect my real-world QA workflow for automated WCAG compliance scans, similar to processes I’ve used in staging and release environments.
+
+---
+
+## 🧰 How to Run Any Test
+
+```bash
+npm install
+npx cypress open
