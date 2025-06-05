@@ -1,0 +1,18 @@
+meta {
+  name: Get User # 2
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://reqres.in/api/users/2
+  body: none
+  auth: inherit
+}
+
+assert {
+  res.status: eq 200
+  res.body.data.id: eq 2
+  res.body.data.email: eq janet.weaver@reqres.in
+  res.body.data.first_name: eq Janet
+}

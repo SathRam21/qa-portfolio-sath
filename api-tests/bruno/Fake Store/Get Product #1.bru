@@ -1,0 +1,18 @@
+meta {
+  name: Get Product #1
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://fakestoreapi.com/products/1
+  body: none
+  auth: inherit
+}
+
+assert {
+  res.status: eq 200
+  res.body.id: eq 1
+  res.body.title: eq Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
+  res.body.price: eq 109.95
+}
