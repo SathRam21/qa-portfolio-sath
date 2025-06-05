@@ -15,7 +15,6 @@ Tests the [ReqRes API](https://reqres.in/) for basic authentication and user loo
 |------|----------|---------|
 | `Get User` | `GET /api/users/2` | Validates static user info |
 | `Login (Valid)` | `POST /api/login` | Auth test using email + password |
-| `Login (Missing Password)` | `POST /api/login` | Validates error handling for bad input |
 
 > 🔐 Note: ReqRes now requires a free API key. Add the following header to your login request:  
 > `x-api-key: reqres-free-v1`
