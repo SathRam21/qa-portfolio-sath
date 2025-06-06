@@ -71,8 +71,31 @@ This test suite integrates `cypress-axe` to check accessibility compliance (WCAG
 
 ---
 
+## 🔌 4. API Testing with Bruno (ReqRes & Fake Store)
+
+📁 [`api-tests/`](./api-tests)
+
+This section showcases how I use [Bruno](https://www.usebruno.com/) to write API tests that are readable, shareable, and Git-friendly — including public login flows and product data validation.
+
+### ✅ What It Covers:
+- **Status code assertions**
+- **Field validation (e.g., price, email, token)**
+- **Request chaining using variables**
+- **Error handling (e.g., login with missing password)**
+
+### 📄 Projects Included:
+| Suite | Tests |
+|-------|-------|
+| **ReqRes** | `GET /api/users/2`, `POST /api/login`, `POST /api/login (negative)` |
+| **Fake Store API** | `GET /products/1`, `POST /carts` *(planned)* |
+
+> 🔁 These test suites show API-only validation with no UI dependency — ideal for microservice QA, CI/CD pipelines, or sandbox testing.
+
+---
+
 ## 🧰 How to Run Any Test
 
 ```bash
 npm install
 npx cypress open
+```
