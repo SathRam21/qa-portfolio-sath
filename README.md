@@ -1,8 +1,8 @@
 # 🎯 QA Automation Portfolio – Sath Ramanan
 
-Welcome! This portfolio showcases my professional experience and skillset as a **QA Automation Engineer** using Cypress, TypeScript, and real-world test strategies.
+Welcome! This portfolio showcases my professional experience and skillset as a **QA Automation Engineer** using Cypress, TypeScript, Bruno, Locust, and real-world test strategies.
 
-These projects demonstrate three key competencies:
+These projects demonstrate four key competencies:
 
 ---
 
@@ -93,7 +93,34 @@ This section showcases how I use [Bruno](https://www.usebruno.com/) to write API
 
 ---
 
-## 🧰 How to Run Any Test
+## 🚦 5. Load Testing with Locust
+
+📁 [`load-tests/`](./load-tests)
+
+This section uses [Locust](https://locust.io) to simulate real-world traffic on the public [FakeStore API](https://fakestoreapi.com).
+
+### ✅ What It Covers:
+- Simulated browsing and product detail views
+- Randomized task distribution
+- Excel report generation on `Ctrl+C` stop
+
+### 📄 Files Included:
+| File | Purpose |
+|------|---------|
+| `fakestore_realistic_load.py` | Load test logic |
+| `utils/exporter.py` | Excel export utility |
+
+📊 Reports include charts, summary stats, response distributions, and raw logs — saved as `.xlsx` with timestamped names.
+
+To run it:
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+locust -f load-tests/fakestore_realistic_load.py --host=https://fakestoreapi.com
+
+
+## 🧰 How to Run Any Cypress Test
 
 ```bash
 npm install
